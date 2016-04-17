@@ -5,7 +5,14 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\s_yellow_idle</sprite>
+    <sprite>sprites\s_yellow_climb_1</sprite>
+    <sprite>sprites\s_yellow_climb_2</sprite>
+    <sprite>sprites\s_yellow_duck</sprite>
+    <sprite>sprites\s_yellow_hurt</sprite>
+    <sprite>sprites\s_yellow_jump</sprite>
+  </sprites>
   <backgrounds name="background">
     <background>background\b_blue_grassland</background>
   </backgrounds>
