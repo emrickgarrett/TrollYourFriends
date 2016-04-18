@@ -29,12 +29,18 @@
 
 //player variables
 player_speed = 5;
+image_speed = .2;
 
 //keyboard inputs
 up = false;
 down = false;
 left = false;
 right = false;
+
+//Sprite variables
+s_walking = s_yellow_walk;
+s_jumping = s_yellow_jump;
+s_idle = s_yellow_idle;
 
 //animation variables
 jumping = false;
@@ -112,28 +118,40 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
     if(right &amp;&amp; place_free(x+player_speed, y) and !left){
         if(place_free(x,y+1)){
             if(place_free(x + player_speed, y + vspeed)){
+                //sprite_index = s_walking;
+                //image_xscale = 1;
                 x+= player_speed;
             }
         }else{
+            //sprite_index = s_walking;
+            //image_xscale = 1;
             x += player_speed;
         }
     }else if(left &amp;&amp; place_free(x-player_speed, y) and !right){
         if(place_free(x,y+1)){
             if(place_free(x - player_speed, y + vspeed)){
                 x -= player_speed;
+                //image_xscale = -1;
+                //sprite_index = s_walking;
             }
         }else{
             x -= player_speed;
+            //image_xscale = -1;
+            //sprite_index = s_walking;
         }
+    }else{
+        //image_xscale = 1;
+        //sprite_index = s_idle;
     }
     
     // Gravity
     if(place_free(x, y+1)){
+        //sprite_index = s_jumping;
         gravity = .75;
         
         //Set max fall speed
         if(vspeed &gt;= 10)
-            vspeed = 10;
+            vspeed = 10;    
     }else{
         gravity = 0;
         
@@ -142,6 +160,28 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
             vspeed = -15;
         }
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Animation script
+// Apply the correct animations when needed (for example jumping/running)
 </string>
           </argument>
         </arguments>
