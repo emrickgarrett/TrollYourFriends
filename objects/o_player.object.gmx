@@ -114,28 +114,35 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
             <kind>1</kind>
             <string>///Movement script
 
+//Variables to track net_change over steps
+x_net_change = 0;
+
 //Moving left/right
     if(right &amp;&amp; place_free(x+player_speed, y) and !left){
         if(place_free(x,y+1)){
             if(place_free(x + player_speed, y + vspeed)){
                 //sprite_index = s_walking;
                 //image_xscale = 1;
-                x+= player_speed;
+                x += player_speed;
+                x_net_change += player_speed;
             }
         }else{
             //sprite_index = s_walking;
             //image_xscale = 1;
             x += player_speed;
+            x_net_change += player_speed;
         }
     }else if(left &amp;&amp; place_free(x-player_speed, y) and !right){
         if(place_free(x,y+1)){
             if(place_free(x - player_speed, y + vspeed)){
                 x -= player_speed;
+                x_net_change -= player_speed;
                 //image_xscale = -1;
                 //sprite_index = s_walking;
             }
         }else{
             x -= player_speed;
+            x_net_change -= player_speed;
             //image_xscale = -1;
             //sprite_index = s_walking;
         }
@@ -182,6 +189,21 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
             <kind>1</kind>
             <string>/// Animation script
 // Apply the correct animations when needed (for example jumping/running)
+
+//walking
+if((!right and !left) or (right and left)){
+    sprite_index = s_idle;
+}else if(right){
+    image_xscale = 1;
+    sprite_index = s_walking;
+}else if(left){
+    image_xscale = -1;
+    sprite_index = s_walking;
+}
+if(vspeed != 0){
+    //jumping
+    sprite_index = s_jumping;
+}
 </string>
           </argument>
         </arguments>
