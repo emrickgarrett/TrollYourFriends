@@ -7,8 +7,8 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>2</bboxmode>
-  <bbox_left>12</bbox_left>
-  <bbox_right>53</bbox_right>
+  <bbox_left>10</bbox_left>
+  <bbox_right>54</bbox_right>
   <bbox_top>12</bbox_top>
   <bbox_bottom>81</bbox_bottom>
   <HTile>0</HTile>
@@ -20,6 +20,6 @@
   <width>66</width>
   <height>82</height>
   <frames>
-    <frame index="0">images\s_yellow_idle_0.png</frame>
+    <frame index="0">images\s_yellow_stand_0.png</frame>
   </frames>
 </sprite>

@@ -6,17 +6,41 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\s_yellow_idle</sprite>
-    <sprite>sprites\s_yellow_climb_1</sprite>
-    <sprite>sprites\s_yellow_climb_2</sprite>
-    <sprite>sprites\s_yellow_duck</sprite>
-    <sprite>sprites\s_yellow_hurt</sprite>
-    <sprite>sprites\s_yellow_jump</sprite>
+    <sprites name="s_aliens">
+      <sprites name="s_yellow">
+        <sprite>sprites\s_yellow_climb</sprite>
+        <sprite>sprites\s_yellow_idle</sprite>
+        <sprite>sprites\s_yellow_hurt</sprite>
+        <sprite>sprites\s_yellow_walk</sprite>
+        <sprite>sprites\s_yellow_swim</sprite>
+        <sprite>sprites\s_yellow_stand</sprite>
+        <sprite>sprites\s_yellow_jump</sprite>
+        <sprite>sprites\s_yellow_duck</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="floors">
+      <sprite>sprites\s_grass_mid</sprite>
+      <sprite>sprites\s_grass_left</sprite>
+      <sprite>sprites\s_grass_right</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\b_blue_grassland</background>
   </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <objects name="players">
+      <object>objects\o_player</object>
+    </objects>
+    <objects name="floors">
+      <object>objects\o_grass_mid</object>
+      <object>objects\o_grass_left</object>
+      <object>objects\o_grass_right</object>
+    </objects>
+    <objects name="collision_objects">
+      <object>objects\o_collision</object>
+    </objects>
+  </objects>
   <rooms name="rooms">
     <room>rooms\r_test</room>
   </rooms>
