@@ -7,7 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="s_aliens">
-      <sprites name="s_yellow">
+      <sprites name="yellow">
         <sprite>sprites\s_yellow_climb</sprite>
         <sprite>sprites\s_yellow_idle</sprite>
         <sprite>sprites\s_yellow_hurt</sprite>
@@ -16,6 +16,16 @@
         <sprite>sprites\s_yellow_stand</sprite>
         <sprite>sprites\s_yellow_jump</sprite>
         <sprite>sprites\s_yellow_duck</sprite>
+      </sprites>
+      <sprites name="blue">
+        <sprite>sprites\s_blue_idle</sprite>
+        <sprite>sprites\s_blue_climb</sprite>
+        <sprite>sprites\s_blue_hurt</sprite>
+        <sprite>sprites\s_blue_walk</sprite>
+        <sprite>sprites\s_blue_swim</sprite>
+        <sprite>sprites\s_blue_stand</sprite>
+        <sprite>sprites\s_blue_jump</sprite>
+        <sprite>sprites\s_blue_duck</sprite>
       </sprites>
     </sprites>
     <sprites name="floors">

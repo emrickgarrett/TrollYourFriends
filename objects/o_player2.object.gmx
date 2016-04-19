@@ -32,9 +32,10 @@ event_inherited();
 player = 2;
 
 //Sprite variables
-s_walking = s_yellow_walk;
-s_jumping = s_yellow_jump;
-s_idle = s_yellow_idle;
+s_walking = s_blue_walk;
+s_jumping = s_blue_jump;
+s_idle = s_blue_idle;
+s_hurt = s_blue_hurt;
 </string>
           </argument>
         </arguments>

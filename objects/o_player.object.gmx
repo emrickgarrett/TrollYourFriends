@@ -44,6 +44,7 @@ right = false;
 s_walking = s_yellow_walk;
 s_jumping = s_yellow_jump;
 s_idle = s_yellow_idle;
+s_hurt = s_yellow_hurt;
 
 //animation variables
 jumping = false;
@@ -279,7 +280,7 @@ hspeed -= direction_x * hazard_speed;
 vspeed -= 12;
 
 hit = true;
-sprite_index = s_yellow_hurt;
+sprite_index = s_hurt;
 
 //Alternate version if I want the player to explode into blood
 </string>
