@@ -66,6 +66,7 @@
     <instance objName="o_grass_mid" x="800" y="0" name="inst_CEF058F1" locked="0" code="" scaleX="0.571428596973419" scaleY="12.1739130020142" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_mid" x="0" y="-70" name="inst_2C0C9147" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_mid" x="-70" y="-70" name="inst_2F434D72" locked="0" code="" scaleX="1" scaleY="13" colour="4294967295" rotation="0"/>
+    <instance objName="o_spikes" x="420" y="560" name="inst_E0FF54F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

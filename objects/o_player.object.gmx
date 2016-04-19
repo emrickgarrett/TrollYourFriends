@@ -30,6 +30,8 @@
 //player variables
 player_speed = 5;
 image_speed = .2;
+hazard_speed = 6;
+friction = .3;
 
 //keyboard inputs
 up = false;
@@ -44,6 +46,7 @@ s_idle = s_yellow_idle;
 
 //animation variables
 jumping = false;
+hurt = false;
 
 </string>
           </argument>
@@ -116,6 +119,7 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
 
 //Variables to track net_change over steps
 x_net_change = 0;
+if(!hurt){
 
 //Moving left/right
     if(right &amp;&amp; place_free(x+player_speed, y) and !left){
@@ -167,6 +171,12 @@ x_net_change = 0;
             vspeed = -15;
         }
     }
+    
+}else{
+    if(hspeed == 0){
+        hurt = false;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -190,20 +200,58 @@ x_net_change = 0;
             <string>/// Animation script
 // Apply the correct animations when needed (for example jumping/running)
 
-//walking
-if((!right and !left) or (right and left)){
-    sprite_index = s_idle;
-}else if(right){
-    image_xscale = 1;
-    sprite_index = s_walking;
-}else if(left){
-    image_xscale = -1;
-    sprite_index = s_walking;
+if(!hurt){
+
+    //walking
+    if((!right and !left) or (right and left)){
+        sprite_index = s_idle;
+    }else if(right){
+        image_xscale = 1;
+        sprite_index = s_walking;
+    }else if(left){
+        image_xscale = -1;
+        sprite_index = s_walking;
+    }
+    if(vspeed != 0 or place_free(x, y+2)){
+        //jumping
+        sprite_index = s_jumping;
+    }
+
 }
-if(vspeed != 0 or place_free(x, y+2)){
-    //jumping
-    sprite_index = s_jumping;
-}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="o_hazard">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Throw the player in the other direction by x pixels
+
+//If I want the player to be knocked back
+var direction_x = image_xscale;
+
+hspeed -= direction_x * hazard_speed;
+vspeed -= 12;
+
+hit = true;
+sprite_index = s_yellow_hurt;
+
+//Alternate version if I want the player to explode into blood
 </string>
           </argument>
         </arguments>
