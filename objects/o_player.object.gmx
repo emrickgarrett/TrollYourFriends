@@ -81,7 +81,7 @@ if(keyboard_check(vk_left) or keyboard_check(ord('A'))){
     left = false;
 }
 
-if(keyboard_check(vk_up) or keyboard_check(ord('W'))){
+if(keyboard_check(vk_up) or keyboard_check(ord('W')) or keyboard_check(vk_space)){
     up = true;
 }else{
     up = false;
