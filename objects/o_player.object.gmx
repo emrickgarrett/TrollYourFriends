@@ -32,6 +32,7 @@ player_speed = 5;
 image_speed = .2;
 hazard_speed = 6;
 friction = .3;
+player = 1;
 
 //keyboard inputs
 up = false;
@@ -71,29 +72,58 @@ hurt = false;
           <argument>
             <kind>1</kind>
             <string>/// Determine which keys are pressed (for p1)
+if(player == 1){
 
-if(keyboard_check(vk_right) or keyboard_check(ord('D'))){
-    right = true;
-}else{
-    right = false;
-}   
+    if(keyboard_check(vk_right) or keyboard_check(ord('D'))){
+        right = true;
+    }else{
+        right = false;
+    }   
+    
+    if(keyboard_check(vk_left) or keyboard_check(ord('A'))){
+        left = true;
+    }else{
+        left = false;
+    }
+    
+    if(keyboard_check(vk_up) or keyboard_check(ord('W')) or keyboard_check(vk_space)){
+        up = true;
+    }else{
+        up = false;
+    }
+    
+    if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
+        down = true;
+    }else{
+        down = false;
+    }
 
-if(keyboard_check(vk_left) or keyboard_check(ord('A'))){
-    left = true;
-}else{
-    left = false;
-}
+}else if(player == 2){
 
-if(keyboard_check(vk_up) or keyboard_check(ord('W')) or keyboard_check(vk_space)){
-    up = true;
-}else{
-    up = false;
-}
+    if(keyboard_check(ord('L'))){
+        right = true;
+    }else{
+        right = false;
+    }   
+    
+    if(keyboard_check(ord('J'))){
+        left = true;
+    }else{
+        left = false;
+    }
+    
+    if(keyboard_check(ord('I'))){
+        up = true;
+    }else{
+        up = false;
+    }
+    
+    if(keyboard_check(ord('K'))){
+        down = true;
+    }else{
+        down = false;
+    }
 
-if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
-    down = true;
-}else{
-    down = false;
 }
 </string>
           </argument>
