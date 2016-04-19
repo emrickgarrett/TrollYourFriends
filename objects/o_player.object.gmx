@@ -200,7 +200,7 @@ if((!right and !left) or (right and left)){
     image_xscale = -1;
     sprite_index = s_walking;
 }
-if(vspeed != 0){
+if(vspeed != 0 or place_free(x, y+2)){
     //jumping
     sprite_index = s_jumping;
 }
