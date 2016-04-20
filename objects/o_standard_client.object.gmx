@@ -191,6 +191,10 @@ if n_id == client_socket{
         case PLAYER_ID: // Set the id of the player
             p_id = buffer_read(buffer, buffer_u16);
         break;
+        case PLAYER_COUNT:
+            var player_count = buffer_read(buffer, buffer_u16);
+            o_ui_playercount.count = player_count;
+        break;
     }
 }
 </string>
