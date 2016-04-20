@@ -129,10 +129,13 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\r_character_select</room>
     <room>rooms\r_menu</room>
+    <room>rooms\r_character_select</room>
     <room>rooms\r_test</room>
   </rooms>
+  <constants number="1">
+    <constant name="TEST">0</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
