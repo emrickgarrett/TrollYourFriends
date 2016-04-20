@@ -110,6 +110,40 @@ if n_id == server_socket{
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle data
+
+var n_id = ds_map_find_value(async_load, "id");
+if server_socket == n_id{
+    var t_buffer = ds_map_find_value(async_load, "buffer");
+    var cmd = buffer_read(t_buffer, buffer_u16);
+    var inst = ds_map_find_value(socket_list, sock);
+    switch(cmd){
+        case TEST:
+            var msg = buffer_read(t_buffer, buffer_string);
+            show_debug_message(msg);
+        break;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
