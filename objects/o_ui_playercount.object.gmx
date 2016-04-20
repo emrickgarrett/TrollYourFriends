@@ -65,6 +65,9 @@ switch(count){
     case 3:
         sprite_index = s_3;
     break;
+    case 4:
+        sprite_index = s_4;
+    break;
 }
 </string>
           </argument>
