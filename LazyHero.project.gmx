@@ -71,6 +71,17 @@
           <sprite>sprites\s_yellow_selected</sprite>
         </sprites>
       </sprites>
+      <sprites name="ui">
+        <sprites name="numbers">
+          <sprite>sprites\s_0</sprite>
+          <sprite>sprites\s_1</sprite>
+          <sprite>sprites\s_2</sprite>
+          <sprite>sprites\s_3</sprite>
+          <sprite>sprites\s_4</sprite>
+        </sprites>
+        <sprite>sprites\s_arrow_right</sprite>
+        <sprite>sprites\s_minus</sprite>
+      </sprites>
     </sprites>
     <sprites name="cursor">
       <sprite>sprites\s_cursor</sprite>
@@ -106,6 +117,12 @@
         <object>objects\o_blue_select</object>
         <object>objects\o_pink_select</object>
         <object>objects\o_char_title</object>
+      </objects>
+      <objects name="hud">
+        <object>objects\o_char_next</object>
+        <object>objects\o_ui4</object>
+        <object>objects\o_ui_playercount</object>
+        <object>objects\o_minus</object>
       </objects>
     </objects>
     <objects name="players">
