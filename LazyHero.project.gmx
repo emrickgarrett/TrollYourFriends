@@ -17,6 +17,16 @@
         <sprite>sprites\s_yellow_jump</sprite>
         <sprite>sprites\s_yellow_duck</sprite>
       </sprites>
+      <sprites name="pink">
+        <sprite>sprites\s_pink_idle</sprite>
+        <sprite>sprites\s_pink_climb</sprite>
+        <sprite>sprites\s_pink_hurt</sprite>
+        <sprite>sprites\s_pink_walk</sprite>
+        <sprite>sprites\s_pink_swim</sprite>
+        <sprite>sprites\s_pink_stand</sprite>
+        <sprite>sprites\s_pink_jump</sprite>
+        <sprite>sprites\s_pink_duck</sprite>
+      </sprites>
       <sprites name="blue">
         <sprite>sprites\s_blue_idle</sprite>
         <sprite>sprites\s_blue_climb</sprite>
@@ -27,6 +37,16 @@
         <sprite>sprites\s_blue_jump</sprite>
         <sprite>sprites\s_blue_duck</sprite>
       </sprites>
+      <sprites name="green">
+        <sprite>sprites\s_green_idle</sprite>
+        <sprite>sprites\s_green_climb</sprite>
+        <sprite>sprites\s_green_hurt</sprite>
+        <sprite>sprites\s_green_walk</sprite>
+        <sprite>sprites\s_green_swim</sprite>
+        <sprite>sprites\s_green_stand</sprite>
+        <sprite>sprites\s_green_jump</sprite>
+        <sprite>sprites\s_green_duck</sprite>
+      </sprites>
     </sprites>
     <sprites name="floors">
       <sprite>sprites\s_grass_mid</sprite>
@@ -36,18 +56,36 @@
     <sprites name="obstacles">
       <sprite>sprites\s_spikes</sprite>
     </sprites>
+    <sprites name=" menu">
+      <sprite>sprites\s_title</sprite>
+      <sprite>sprites\s_host</sprite>
+      <sprite>sprites\s_join</sprite>
+    </sprites>
+    <sprites name="cursor">
+      <sprite>sprites\s_cursor</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\b_blue_grassland</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <objects name="menu">
+      <object>objects\o_title</object>
+      <object>objects\o_host</object>
+      <object>objects\o_join</object>
+    </objects>
     <objects name="players">
-      <object>objects\o_player</object>
-      <object>objects\o_player1</object>
-      <object>objects\o_player2</object>
-      <object>objects\o_player3</object>
-      <object>objects\o_player4</object>
+      <objects name="aliens">
+        <object>objects\o_player</object>
+        <object>objects\o_player1</object>
+        <object>objects\o_player3</object>
+        <object>objects\o_player2</object>
+        <object>objects\o_player4</object>
+      </objects>
+      <objects name="cursors">
+        <object>objects\o_cursor</object>
+      </objects>
     </objects>
     <objects name="floors">
       <object>objects\o_grass_mid</object>
@@ -63,11 +101,15 @@
         <object>objects\o_spikes</object>
       </objects>
     </objects>
+    <objects name="server_items">
+      <object>objects\o_server</object>
+      <object>objects\o_client</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\r_test</room>
     <room>rooms\r_menu</room>
     <room>rooms\r_character_select</room>
+    <room>rooms\r_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
