@@ -29,7 +29,7 @@
 
 //Create client/server objects
 instance_create(-500,-500, o_server);
-instance_create(-500,-500, o_client);
+instance_create(-500,-500, o_host_client);
 
 //Navigate
 room_goto(r_character_select);

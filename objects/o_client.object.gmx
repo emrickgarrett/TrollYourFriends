@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>o_standard_client</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,73 +27,24 @@
             <kind>1</kind>
             <string>/// Create Client Sockets and connect to server
 
+event_inherited();
+
+//Variables
+ip = get_string("Enter the IP of the host", "127.0.0.1");
+socket = 8000;
+timeout = 4; // (Seconds)
+
+//Configure timeout time:
+network_set_config(network_config_connect_timeout,timeout*1000);
+
 //Create socket
 client_socket = network_create_socket(network_socket_tcp);
-var server = network_connect(client_socket, "127.0.0.1", 6510);
+var server = network_connect(client_socket, ip, socket);
 if server &lt; 0{
     // No connection
     show_debug_message("Client couldn't establish connection with the server!");
 }else{
     // Connected, do something here:
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Send data to the server
-
-var t_buffer = buffer_create(256, buffer_grow, 1);
-buffer_seek(t_buffer, buffer_seek_start, TEST);
-buffer_write(t_buffer, buffer_u16, 1);
-buffer_write(t_buffer, buffer_string, "Hello");
-//More data here
-network_send_packet(client_socket, t_buffer, buffer_tell(t_buffer));
-buffer_delete(t_buffer);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="68">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Connect client to the server
-
-var n_id = ds_map_find_value(async_load, "id");
-if n_id == client_socket{
-    //New Packet from the server
 }
 </string>
           </argument>

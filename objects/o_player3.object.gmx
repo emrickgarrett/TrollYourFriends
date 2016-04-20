@@ -3,7 +3,7 @@
   <spriteName>s_pink_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-6</depth>
   <persistent>0</persistent>
   <parentName>o_player</parentName>
   <maskName>&lt;undefined&gt;</maskName>
