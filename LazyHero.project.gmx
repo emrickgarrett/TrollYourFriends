@@ -57,9 +57,14 @@
       <sprite>sprites\s_spikes</sprite>
     </sprites>
     <sprites name=" menu">
-      <sprite>sprites\s_title</sprite>
-      <sprite>sprites\s_host</sprite>
-      <sprite>sprites\s_join</sprite>
+      <sprites name="main">
+        <sprite>sprites\s_title</sprite>
+        <sprite>sprites\s_host</sprite>
+        <sprite>sprites\s_join</sprite>
+      </sprites>
+      <sprites name="char_select">
+        <sprite>sprites\s_char_title</sprite>
+      </sprites>
     </sprites>
     <sprites name="cursor">
       <sprite>sprites\s_cursor</sprite>
@@ -67,13 +72,30 @@
   </sprites>
   <backgrounds name="background">
     <background>background\b_blue_grassland</background>
+    <background>background\b_blue_desert</background>
+    <background>background\b_blue_land</background>
+    <background>background\b_blue_shroom</background>
+    <background>background\b_colored_desert</background>
+    <background>background\b_colored_grass</background>
+    <background>background\b_colored_land</background>
+    <background>background\b_colored_shroom</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <objects name="menu">
-      <object>objects\o_title</object>
-      <object>objects\o_host</object>
-      <object>objects\o_join</object>
+      <objects name="main">
+        <object>objects\o_join</object>
+        <object>objects\o_host</object>
+        <object>objects\o_title</object>
+      </objects>
+      <objects name="char_select">
+        <object>objects\o_select</object>
+        <object>objects\o_yellow_select</object>
+        <object>objects\o_green_select</object>
+        <object>objects\o_blue_select</object>
+        <object>objects\o_pink_select</object>
+        <object>objects\o_char_title</object>
+      </objects>
     </objects>
     <objects name="players">
       <objects name="aliens">
@@ -107,8 +129,8 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\r_menu</room>
     <room>rooms\r_character_select</room>
+    <room>rooms\r_menu</room>
     <room>rooms\r_test</room>
   </rooms>
   <help>
