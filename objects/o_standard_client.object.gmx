@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables for the clients
+            <string>/// Handle data from server
 
 p_id = -1;
 </string>
