@@ -32,7 +32,8 @@ event_inherited();
 //Variables needing to be overriden
 s_idle = s_green_idle;
 s_jump = s_green_jump;
-s_selected = s_yellow_idle;
+s_selected = s_green_selected;
+s_char = GREEN;
 </string>
           </argument>
         </arguments>

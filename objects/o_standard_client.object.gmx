@@ -86,39 +86,6 @@ if(p_id == 0){
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="56">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Send data to the server
-
-//show_debug_message("Sending Data to Server: Left Click");
-
-var t_buffer = buffer_create(256, buffer_grow, 1);
-buffer_seek(t_buffer, buffer_seek_start, 0);
-buffer_write(t_buffer, buffer_u16, TEST);
-buffer_write(t_buffer, buffer_string, "Client_Packet");
-//More data here
-network_send_packet(client_socket, t_buffer, buffer_tell(t_buffer));
-buffer_delete(t_buffer);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="68">
       <action>
         <libid>1</libid>
@@ -194,6 +161,39 @@ if n_id == client_socket{
         case PLAYER_COUNT:
             var player_count = buffer_read(buffer, buffer_u16);
             o_ui_playercount.count = player_count;
+        break;
+        case CHAR_SELECT:
+            var inst = buffer_read(buffer, buffer_u16);
+            var char = buffer_read(buffer, buffer_u16);
+            
+            if(inst == p_id){
+                // that is my id :)
+            }
+            
+            // change selected of char
+            switch(char){
+                case BLUE:
+                    with(o_blue_select){
+                        selected = !selected;
+                    }
+                break;
+                case GREEN:
+                    with(o_green_select){
+                        selected = !selected;
+                    }
+                break;
+                case YELLOW:
+                    with(o_yellow_select){
+                        selected = !selected;
+                    }
+                break;
+                case PINK:
+                    with(o_pink_select){
+                        selected = !selected;
+                    }
+                break;
+            }
+            
         break;
     }
 }

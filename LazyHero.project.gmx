@@ -103,6 +103,8 @@
     <script>scripts\send_client_id.gml</script>
     <script>scripts\send_clients_cursors.gml</script>
     <script>scripts\send_clients_playercount.gml</script>
+    <script>scripts\char_select.gml</script>
+    <script>scripts\send_char_update.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="menu">

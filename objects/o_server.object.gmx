@@ -43,6 +43,32 @@ if( server_socket &lt; 0){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Character Select Variables
+
+p1_char = 0;
+p2_char = 0;
+p3_char = 0;
+p4_char = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -68,40 +94,6 @@ player_count = ds_list_size(socket_list);
 if(player_count &gt; 1){
     o_char_next.clickable = true;   
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="57">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Send data to all clients
-
-var t_buffer = buffer_create(256, buffer_grow, 1);
-buffer_seek(t_buffer, buffer_seek_start, 0);
-buffer_write(t_buffer, buffer_u16, TEST);
-buffer_write(t_buffer, buffer_string, "Server_Packet");
-//More data here
-for(var i = 0; i &lt; ds_list_size(socket_list); i++;){
-    //show_debug_message("Sending Packet to Client: Right Click");
-    network_send_packet(ds_list_find_value(socket_list, i), t_buffer, buffer_tell(t_buffer));
-}
-buffer_delete(t_buffer);
 </string>
           </argument>
         </arguments>

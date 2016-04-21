@@ -33,8 +33,8 @@ selected = false;
 //Variables needing to be overriden
 s_idle = s_yellow_idle;
 s_jump = s_yellow_jump;
-s_selected = s_yellow_idle;
-
+s_selected = s_yellow_selected;
+s_char = YELLOW;
 </string>
           </argument>
         </arguments>
@@ -67,6 +67,69 @@ if(!selected){
         sprite_index = s_jump;
     }
 
+}else{
+    sprite_index = s_selected;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set the selected for the player
+
+//tell if correct cursor is colliding with the image
+
+collision = false;
+var buffer = 5;
+
+switch(o_standard_client.p_id){
+    case 0:
+        if(collision_rectangle(x + buffer, y + buffer, x + sprite_width * image_xscale - buffer, y + sprite_height * image_yscale - buffer, o_cursor1, true, false) != noone)
+        collision = true;
+    break;
+    case 1:
+        if(collision_rectangle(x + buffer, y + buffer, x + sprite_width * image_xscale - buffer, y + sprite_height * image_yscale - buffer, o_cursor2, true, false) != noone)
+        collision = true;
+    break;
+    case 2:
+        if(collision_rectangle(x + buffer, y + buffer, x + sprite_width * image_xscale - buffer, y + sprite_height * image_yscale - buffer, o_cursor3, true, false) != noone)
+        collision = true;
+    break;
+    case 3:
+        if(collision_rectangle(x + buffer, y + buffer, x + sprite_width * image_xscale - buffer, y + sprite_height * image_yscale - buffer, o_cursor4, true, false) != noone)
+        collision = true;
+    break;
+}
+
+if(collision){
+    
+        //send code to server letting it know it has been selected
+        var buffer = buffer_create(256, buffer_grow, 1);
+        buffer_seek(buffer, buffer_seek_start, 0);
+        buffer_write(buffer, buffer_u16, CHAR_SELECT);
+        buffer_write(buffer, buffer_u16, s_char);
+        
+        network_send_packet(o_standard_client.client_socket, buffer, buffer_tell(buffer));
+        
+        buffer_delete(buffer);
+        
 }
 </string>
           </argument>

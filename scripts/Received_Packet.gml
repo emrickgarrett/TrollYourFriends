@@ -8,10 +8,6 @@ var inst = argument[2];
     
 var msgid = buffer_read(buffer, buffer_u16);
 
-if(inst != 0){
-    show_debug_message(inst);
-}
-
 switch(msgid){
     case TEST:
         var msg = buffer_read(buffer, buffer_string);
@@ -28,7 +24,7 @@ switch(msgid){
                 o_cursor1.y = mous_y;
             break;
             case 1:
-                show_debug_message("Mouse X: " + string(mous_x) + " Mouse Y: " + string(mous_y));
+                //show_debug_message("Mouse X: " + string(mous_x) + " Mouse Y: " + string(mous_y));
                 o_cursor2.x = mous_x;
                 o_cursor2.y = mous_y;
             break;
@@ -42,5 +38,9 @@ switch(msgid){
             break;
         }    
         send_clients_cursors();
+    break;
+    case CHAR_SELECT:
+        var select = buffer_read(buffer, buffer_u16);
+        char_select(inst, select);
     break;
 }
