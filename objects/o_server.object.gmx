@@ -92,7 +92,30 @@ p4_char = 0;
 player_count = ds_list_size(socket_list);
 
 if(player_count &gt; 1){
-    o_char_next.clickable = true;   
+    
+    switch(player_count){
+        case 2:
+            if(p1_char != 0 and p2_char != 0){
+                o_char_next.clickable = true;  
+            }else{
+                o_char_next.clickable = false;
+            }
+        break;
+        case 3:
+            if(p1_char != 0 and p2_char != 0 and p3_char != 0){
+                o_char_next.clickable = true;  
+            }else{
+                o_char_next.clickable = false;
+            }
+        break;
+        case 4:
+            if(p1_char != 0 and p2_char != 0 and p3_char != 0 and p4_char != 0){
+                o_char_next.clickable = true;  
+            }else{
+                o_char_next.clickable = false;
+            }
+        break;
+    } 
 }
 </string>
           </argument>
@@ -127,8 +150,10 @@ if n_id == server_socket{
             ds_list_add(socket_list, sock);
             send_client_id(sock, ds_list_size(socket_list)-1);
             send_clients_playercount(socket_list);
+            //send_clients_selected(socket_list);
         break;
         case network_type_disconnect:
+            var sock = ds_map_find_value(async_load, "socket"); // store id of connection
             ds_map_delete(socket_list, sock);
         break;
         case network_type_data:

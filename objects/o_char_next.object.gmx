@@ -55,6 +55,8 @@ clickable = false;
 
 if(clickable){
     color = c_black;
+}else{
+    color = c_gray;
 }
 </string>
           </argument>
