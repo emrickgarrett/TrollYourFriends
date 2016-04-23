@@ -70,6 +70,10 @@
     <instance objName="o_player2" x="700" y="490" name="inst_56726906" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_player3" x="630" y="420" name="inst_5590469E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_player4" x="210" y="560" name="inst_65B1431C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_cursor1" x="-210" y="350" name="inst_9283B7FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_cursor2" x="-210" y="420" name="inst_F5ACCF64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_cursor3" x="-210" y="490" name="inst_EA8BF7EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_cursor4" x="-210" y="560" name="inst_1F85CF1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

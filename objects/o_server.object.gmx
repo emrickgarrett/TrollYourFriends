@@ -89,33 +89,37 @@ p4_char = 0;
             <kind>1</kind>
             <string>/// Manage player count as well as the next button
 
-player_count = ds_list_size(socket_list);
-
-if(player_count &gt; 1){
+//Only do this if they are still in the character_select lobby
+if(room == r_character_select){
     
-    switch(player_count){
-        case 2:
-            if(p1_char != 0 and p2_char != 0){
-                o_char_next.clickable = true;  
-            }else{
-                o_char_next.clickable = false;
-            }
-        break;
-        case 3:
-            if(p1_char != 0 and p2_char != 0 and p3_char != 0){
-                o_char_next.clickable = true;  
-            }else{
-                o_char_next.clickable = false;
-            }
-        break;
-        case 4:
-            if(p1_char != 0 and p2_char != 0 and p3_char != 0 and p4_char != 0){
-                o_char_next.clickable = true;  
-            }else{
-                o_char_next.clickable = false;
-            }
-        break;
-    } 
+    player_count = ds_list_size(socket_list);
+    
+    if(player_count &gt; 1){
+        
+        switch(player_count){
+            case 2:
+                if(p1_char != 0 and p2_char != 0){
+                    o_char_next.clickable = true;  
+                }else{
+                    o_char_next.clickable = false;
+                }
+            break;
+            case 3:
+                if(p1_char != 0 and p2_char != 0 and p3_char != 0){
+                    o_char_next.clickable = true;  
+                }else{
+                    o_char_next.clickable = false;
+                }
+            break;
+            case 4:
+                if(p1_char != 0 and p2_char != 0 and p3_char != 0 and p4_char != 0){
+                    o_char_next.clickable = true;  
+                }else{
+                    o_char_next.clickable = false;
+                }
+            break;
+        } 
+    }
 }
 </string>
           </argument>

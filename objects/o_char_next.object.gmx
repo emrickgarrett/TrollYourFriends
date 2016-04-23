@@ -84,8 +84,9 @@ if(clickable){
 
 if(instance_exists(o_server)){
     if(clickable){
-        //Do work
-        room_goto(r_test);
+        //Go to next room
+        room_goto(r_test); // temp
+        send_clients_room_transition(r_test);
     }
 }
 </string>

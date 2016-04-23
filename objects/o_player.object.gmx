@@ -305,7 +305,7 @@ if(!hurt){
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="o_grass_mid">
+    <event eventtype="4" ename="o_hazard">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -339,7 +339,7 @@ sprite_index = s_hurt;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="o_cursor4">
+    <event eventtype="4" ename="o_collision">
       <action>
         <libid>1</libid>
         <id>603</id>
