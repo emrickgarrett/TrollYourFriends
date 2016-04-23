@@ -171,7 +171,7 @@
     <room>rooms\r_character_select</room>
     <room>rooms\r_test</room>
   </rooms>
-  <constants number="15">
+  <constants number="16">
     <constant name="TEST">0</constant>
     <constant name="MOUSE">1</constant>
     <constant name="KEY_RELEASE">2</constant>
@@ -187,6 +187,7 @@
     <constant name="BLUE">12</constant>
     <constant name="CHAR_SELECT_DATA">13</constant>
     <constant name="PLAYER_COUNT">14</constant>
+    <constant name="CHAR_UPDATE">15</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

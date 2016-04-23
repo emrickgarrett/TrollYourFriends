@@ -150,7 +150,7 @@ if n_id == server_socket{
             ds_list_add(socket_list, sock);
             send_client_id(sock, ds_list_size(socket_list)-1);
             send_clients_playercount(socket_list);
-            //send_clients_selected(socket_list);
+            send_clients_selected(sock, ds_list_size(socket_list)-1);
         break;
         case network_type_disconnect:
             var sock = ds_map_find_value(async_load, "socket"); // store id of connection

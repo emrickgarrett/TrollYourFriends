@@ -1,14 +1,15 @@
 // send_clients_selected(socket_list);
-var socket_list = argument[0];
+var socket = argument[0];
+var inst = argument[1];
 
 //need to send client any picking that have already happened, each one has to be it's own packet
+// Having bugs... maybe have it send all 4 packets at once in a separate method?
+// Oh shit, I get it now.... I have to stop it from updating the server version..
 
 var buffer;
 var char;
 
-for(var i = 0; i < ds_list_size(socket_list); i++){
-    
-    socket = ds_list_find_value(socket_list, i);
+for(var i = 0; i < inst+1; i++){
 
     buffer = buffer_create(256, buffer_grow, 1);
     buffer_seek(buffer, buffer_seek_start, 0);
