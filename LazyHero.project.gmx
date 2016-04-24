@@ -81,6 +81,12 @@
         </sprites>
         <sprite>sprites\s_arrow_right</sprite>
         <sprite>sprites\s_minus</sprite>
+        <sprites name="character">
+          <sprite>sprites\s_blue_badge</sprite>
+          <sprite>sprites\s_green_badge</sprite>
+          <sprite>sprites\s_pink_badge</sprite>
+          <sprite>sprites\s_yellow_badge</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="cursor">
@@ -128,6 +134,12 @@
         <object>objects\o_ui4</object>
         <object>objects\o_ui_playercount</object>
         <object>objects\o_minus</object>
+        <objects name="characters">
+          <object>objects\o_blue_badge</object>
+          <object>objects\o_pink_badge</object>
+          <object>objects\o_green_badge</object>
+          <object>objects\o_yellow_badge</object>
+        </objects>
       </objects>
     </objects>
     <objects name="players">
@@ -172,7 +184,7 @@
     <room>rooms\r_character_select</room>
     <room>rooms\r_test</room>
   </rooms>
-  <constants number="16">
+  <constants number="21">
     <constant name="TEST">0</constant>
     <constant name="MOUSE">1</constant>
     <constant name="KEY_RELEASE">2</constant>
@@ -189,6 +201,11 @@
     <constant name="CHAR_SELECT_DATA">13</constant>
     <constant name="PLAYER_COUNT">14</constant>
     <constant name="CHAR_UPDATE">15</constant>
+    <constant name="ROOM_TRANSITION">16</constant>
+    <constant name="ROOM_TEST">17</constant>
+    <constant name="ROOM_GOLF">18</constant>
+    <constant name="ROOM_CHARACTER_SELECT">19</constant>
+    <constant name="ROOM_MENU">20</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

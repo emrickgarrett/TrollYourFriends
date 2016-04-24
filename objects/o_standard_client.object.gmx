@@ -195,6 +195,25 @@ if n_id == client_socket{
             }
             
         break;
+        case ROOM_TRANSITION:
+            //TODO
+            var _room = buffer_read(buffer, buffer_u16);
+            
+            switch(_room){
+                case ROOM_TEST:
+                    room_goto(r_test);
+                break;
+                case ROOM_GOLF:
+                    //TODO this will be the first game I make (maybe only)
+                break;
+                case ROOM_CHARACTER_SELECT:
+                    room_goto(r_character_select);
+                break;
+                case ROOM_MENU:
+                    room_goto(r_menu);
+                break;
+            }
+        break;
     }
 }
 </string>
