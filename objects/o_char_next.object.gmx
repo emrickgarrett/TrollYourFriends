@@ -81,12 +81,13 @@ if(clickable){
           <argument>
             <kind>1</kind>
             <string>/// Only go next if it is the server host
+//Debug is single player only
 
 if(instance_exists(o_server)){
-    if(clickable){
+    if(clickable or debug){
         //Go to next room
-        room_goto(r_test); // temp
-        send_clients_room_transition(r_test);
+        room_goto(r_golf); // temp
+        if(!debug) send_clients_room_transition(r_golf);
     }
 }
 </string>
