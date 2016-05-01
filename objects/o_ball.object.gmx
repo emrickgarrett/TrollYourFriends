@@ -76,8 +76,10 @@ orig_x = x;
 orig_y = y;
 end_x = -1;
 end_y = -1;
-friction = .2;
-gravity = .4;
+friction = .1;
+bounce_loss = .8;
+gravity_spd = .4;
+gravity = gravity_spd;
 
 //generate anchor points for collision detection, 0 = x 1 = y
 left_top_anchor[0] = x;
@@ -91,6 +93,59 @@ right_top_anchor[1] = y;
 
 right_bottom_anchor[0] = x + sprite_width;
 right_bottom_anchor[1] = y + sprite_height;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// undrag, launch ball!
+
+if(drag){
+
+    if(!mouse_check_button(mb_left)){
+
+        drag = false;
+        
+        end_x = mouse_x;
+        end_y = mouse_y;
+        
+        //Calculate speed/direction using x/y values
+        
+        x_speed = start_x - end_x;
+        y_speed = start_y - end_y;
+        
+        hspeed = x_speed * .1;
+        vspeed = y_speed * .1;
+    
+        //debug messages
+        show_debug_message("START_X: " + string(start_x) + "END_X: " + string(end_x));
+        show_debug_message("START_Y: " + string(start_y) + "END_Y: " + string(end_y));
+    }
+
+    if(hspeed &gt; 15) hspeed = 15;
+    if(vspeed &gt; 15) vspeed = 15;
+    if(hspeed &lt; -15) hspeed = -15;
+    if(vspeed &lt; -15) vspeed = -15;
+
+}
+
 </string>
           </argument>
         </arguments>
@@ -116,10 +171,11 @@ right_bottom_anchor[1] = y + sprite_height;
             <string>/// Draw ball on x if dragging, else go back to orig_x
 
 if(drag){
-    x = mouse_x;
-    y = mouse_y;
+    x = mouse_x - sprite_width/2;
+    y = mouse_y - sprite_height/2;
+    gravity = 0;
 }else{
-
+    gravity = gravity_spd;
 }
 </string>
           </argument>
@@ -146,21 +202,19 @@ if(drag){
 if(x &lt;= 0 or x + sprite_width &gt;= room_width or y &lt;= 0 or y + sprite_height &gt;= room_height){
 
     if(hspeed != 0){
-        hspeed = -hspeed;
+        //hspeed = -hspeed;
     }
     
     if(vspeed != 0){
-        vspeed = -vspeed;
+        //vspeed = -vspeed;
     }
     
-    if( (hspeed &lt;= 0.2 or hspeed &gt;= -0.2) and (vspeed &lt;= 0.2 or vspeed &gt;= -0.2) ){
-        if(x &lt; 0){ x = 0; }
-        if(x + sprite_width &gt; room_width){ x = room_width - sprite_width; }
-        if(y &lt; 0){ y = 0; }
-        if(y + sprite_height &gt; room_height){ y = room_height - sprite_height;}
-        
-        if(hspeed &lt;= 0.2 or hspeed &gt;= -0.2) hspeed = 0;
-        if(vspeed &lt;= 0.2 or vspeed &gt;= -0.2) vspeed = 0;
+    
+    if((vspeed &lt;= 0.8 or vspeed &gt;= -0.8) ){
+        if(x &lt; 0){ x = 1; hspeed = -hspeed;}
+        if(x + sprite_width &gt; room_width){ x = room_width - sprite_width-1; hspeed = -hspeed; }
+        if(y &lt; 0){ y = 0; vspeed = -vspeed*bounce_loss;}
+        if(y + sprite_height &gt; room_height){ y = room_height - sprite_height; vspeed = -vspeed*bounce_loss;}
         
     }
 
@@ -195,48 +249,6 @@ if(hspeed == 0 and vspeed == 0){
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// undrag, launch ball!
-
-drag = false;
-
-end_x = mouse_x;
-end_y = mouse_y;
-
-//Calculate speed/direction using x/y values
-
-x_speed = start_x - end_x;
-y_speed = start_y - end_y;
-
-hspeed = x_speed * .05;
-vspeed = y_speed * .05;
-
-if(hspeed &gt; 15) hspeed = 15;
-if(vspeed &gt; 15) vspeed = 15;
-if(hspeed &lt; -15) hspeed = -15;
-if(vspeed &lt; -15) vspeed = -15;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
@@ -256,10 +268,12 @@ if(vspeed &lt; -15) vspeed = -15;
             <kind>1</kind>
             <string>///start drag
 
-if(hspeed == 0 and vspeed == 0){
+if(hspeed == 0 and (position_empty(x, y+1) or y + sprite_height + 1 &gt;= room_height)){
     drag = true;
     start_x = mouse_x;
     start_y = mouse_y;
+}else{
+    show_debug_message("HSPEED: " + string(hspeed) + " VSPEED: " + string(vspeed));
 }
 </string>
           </argument>
