@@ -93,6 +93,11 @@
     <sprites name="cursor">
       <sprite>sprites\s_cursor</sprite>
     </sprites>
+    <sprites name="scenery">
+      <sprites name="flags">
+        <sprite>sprites\s_flag_red</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\b_blue_grassland</background>
