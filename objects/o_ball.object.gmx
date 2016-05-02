@@ -125,6 +125,8 @@ if(drag){
         
         end_x = mouse_x;
         end_y = mouse_y;
+        x = start_x;
+        y = start_y;
         
         //Calculate speed/direction using x/y values
         
