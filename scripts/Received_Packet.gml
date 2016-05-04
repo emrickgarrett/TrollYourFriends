@@ -58,4 +58,48 @@ switch(msgid){
         var select = buffer_read(buffer, buffer_u16);
         char_select(inst, select);
     break;
+    case PLAYER_MOVE:
+        var up = buffer_read(buffer, buffer_u16);
+        var left = buffer_read(buffer, buffer_u16);
+        var right = buffer_read(buffer, buffer_u16);
+        var down = buffer_read(buffer, buffer_u16);
+        
+        var char = -1;
+        if(room == r_test){
+            switch(inst){
+                case 0:
+                    char = p1_char;
+                break;
+                case 1:
+                    char = p2_char;
+                break;
+                case 2:
+                    char = p3_char;
+                break;
+                case 3:
+                    char = p4_char;
+                break;
+            }
+            
+            switch(char){
+                case YELLOW:
+                    char = o_player1;
+                break;
+                case BLUE:
+                    char = o_player2;
+                break;
+                case PINK:
+                    char = o_player3;
+                break;
+                case GREEN:
+                    char = o_player4;
+                break;
+            }
+            
+            char.up = up;
+            char.down = down;
+            char.left = left;
+            char.right = right;
+        }
+    break;
 }

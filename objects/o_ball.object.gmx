@@ -251,6 +251,79 @@ if(hspeed == 0 and vspeed == 0){
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="o_collision">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision Detection to send ball in other direction
+
+left = false;
+h_middle = false;
+right = false;
+up = false;
+v_middle = false;
+down = false;
+
+flag_switcher = false;
+last_vspeed = 0;
+
+//Calculate the margins on top/bottom of platforms
+left = x + sprite_width &lt;= other.x;
+right = x &gt;= other.x + other.sprite_width;
+h_middle = !(left or right);
+
+//Calculate the margins on left/right of platforms
+up = y + sprite_height &lt;= other.y;
+down = y &gt;= other.y + sprite_height;
+v_middle = !(up or down);
+
+
+//Do calculations to determine new speed here
+if((up or down) and h_middle){
+    vspeed = -vspeed;
+}
+
+if((left or right) and v_middle){
+    hspeed = -hspeed;
+}
+
+//Determine whether or not to set hspeed/vspeed to 0
+flag_switcher = !flag_switcher;
+if(vspeed == last_vspeed){
+    vspeed = 0;
+}else{
+    last_vspeed = vspeed;
+}
+
+
+if(vspeed &gt;= 0.8 or vspeed &lt;= -0.8){
+
+    if(up){ y = other.y - sprite_height-1; vspeed = -vspeed*bounce_loss;}
+    if(down){ y = other.y + other.sprite_height + 1; vspeed = -vspeed*bounce_loss;}
+        
+}else{
+    vspeed = 0;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>

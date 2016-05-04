@@ -25,7 +25,7 @@ for(var i = 0; i < ds_list_size(socket_list); i++){
     buffer_write(buffer, buffer_u16, ROOM_TRANSITION);
     buffer_write(buffer, buffer_u16, _room);
     
-    network_send_packet(socket, buffer, buffer_tell(buffer));
+    network_send_packet(ds_list_find_value(socket_list, i), buffer, buffer_tell(buffer));
     
     buffer_delete(buffer);
 

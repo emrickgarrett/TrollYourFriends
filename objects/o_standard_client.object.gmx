@@ -213,6 +213,7 @@ if n_id == client_socket{
                 break;
                 case ROOM_GOLF:
                     //TODO this will be the first game I make (maybe only)
+                    room_goto(r_golf);
                 break;
                 case ROOM_CHARACTER_SELECT:
                     room_goto(r_character_select);

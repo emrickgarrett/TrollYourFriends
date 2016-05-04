@@ -50,6 +50,9 @@ s_hurt = s_yellow_hurt;
 jumping = false;
 hurt = false;
 
+//spawn variables
+start_x = x;
+start_y = y;
 </string>
           </argument>
         </arguments>
@@ -73,6 +76,48 @@ hurt = false;
           <argument>
             <kind>1</kind>
             <string>/// Determine which keys are pressed (for p1)
+
+if(keyboard_check(vk_right) or keyboard_check(ord('D'))){
+    c_right = true;
+}else{
+    c_right = false;
+}   
+    
+if(keyboard_check(vk_left) or keyboard_check(ord('A'))){
+    c_left = true;
+}else{
+    c_left = false;
+}
+    
+if(keyboard_check(vk_up) or keyboard_check(ord('W')) or keyboard_check(vk_space)){
+    c_up = true;
+}else{
+    c_up = false;
+}
+    
+if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
+    c_down = true;
+}else{
+    c_down = false;
+}
+
+//Send packet to server
+
+var buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(buffer, buffer_seek_start, 0);
+buffer_write(buffer, buffer_u16, PLAYER_MOVE);
+buffer_write(buffer, buffer_u16, c_up);
+buffer_write(buffer, buffer_u16, c_left);
+buffer_write(buffer, buffer_u16, c_right);
+buffer_write(buffer, buffer_u16, c_down);
+
+//Send movement
+network_send_packet(o_standard_client.client_socket, buffer, buffer_tell(buffer));
+
+buffer_delete(buffer);
+
+//Original movement script, replacing for server
+/*
 if(player == 1){
 
     if(keyboard_check(vk_right) or keyboard_check(ord('D'))){
@@ -177,6 +222,8 @@ if(player == 1){
         down = false;
     }
 }
+
+*/
 </string>
           </argument>
         </arguments>
@@ -304,6 +351,60 @@ if(!hurt){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Player has fallen below the map
+
+//respawn
+if(y &gt; room_height){
+    x = start_x;
+    y = start_y;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="o_flag">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Player has won the game!
+
+if(instance_exists(o_server)){
+    send_clients_room_transition(r_menu);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="o_hazard">
       <action>
@@ -324,7 +425,12 @@ if(!hurt){
             <kind>1</kind>
             <string>/// Throw the player in the other direction by x pixels
 
+//you dead
+x = start_x;
+y = start_y;
+
 //If I want the player to be knocked back
+/*
 var direction_x = image_xscale;
 
 hspeed -= direction_x * hazard_speed;
@@ -332,6 +438,7 @@ vspeed -= 12;
 
 hit = true;
 sprite_index = s_hurt;
+*/
 
 //Alternate version if I want the player to explode into blood
 </string>
@@ -357,8 +464,10 @@ sprite_index = s_hurt;
           <argument>
             <kind>1</kind>
             <string>///Collide with solid
+
 move_contact_solid(direction, -1);
 vspeed = 0;
+
 </string>
           </argument>
         </arguments>

@@ -56,6 +56,10 @@
     </sprites>
     <sprites name="obstacles">
       <sprite>sprites\s_spikes</sprite>
+      <sprites name="enemies">
+        <sprite>sprites\s_snake</sprite>
+      </sprites>
+      <sprite>sprites\s_spring</sprite>
     </sprites>
     <sprites name=" menu">
       <sprites name="main">
@@ -121,6 +125,9 @@
     <script>scripts\send_clients_room_transition.gml</script>
   </scripts>
   <objects name="objects">
+    <objects name="objectives">
+      <object>objects\o_flag</object>
+    </objects>
     <objects name="menu">
       <objects name="main">
         <object>objects\o_join</object>
@@ -180,6 +187,13 @@
       <objects name="hazards">
         <object>objects\o_spikes</object>
       </objects>
+      <objects name="enemies">
+        <object>objects\o_snake_vertical</object>
+        <object>objects\o_snake_horizontal</object>
+      </objects>
+      <objects name="other">
+        <object>objects\o_spring</object>
+      </objects>
     </objects>
     <objects name="server_items">
       <object>objects\o_server</object>
@@ -194,7 +208,7 @@
     <room>rooms\r_test</room>
     <room>rooms\r_golf</room>
   </rooms>
-  <constants number="21">
+  <constants number="25">
     <constant name="TEST">0</constant>
     <constant name="MOUSE">1</constant>
     <constant name="KEY_RELEASE">2</constant>
@@ -216,6 +230,10 @@
     <constant name="ROOM_GOLF">18</constant>
     <constant name="ROOM_CHARACTER_SELECT">19</constant>
     <constant name="ROOM_MENU">20</constant>
+    <constant name="UP">21</constant>
+    <constant name="LEFT">22</constant>
+    <constant name="RIGHT">23</constant>
+    <constant name="DOWN">24</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
