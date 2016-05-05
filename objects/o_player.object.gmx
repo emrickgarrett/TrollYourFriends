@@ -28,7 +28,7 @@
             <string>/// Set variables for controllers
 
 //player variables
-player_speed = 5;
+player_speed = 6;
 image_speed = .2;
 hazard_speed = 6;
 friction = .3;
@@ -39,6 +39,7 @@ up = false;
 down = false;
 left = false;
 right = false;
+restart = false;
 
 //Sprite variables
 s_walking = s_yellow_walk;
@@ -101,6 +102,20 @@ if(keyboard_check(vk_down) or keyboard_check(ord('S'))){
     c_down = false;
 }
 
+if(keyboard_check(ord('R'))){
+    c_restart = true;
+}else{
+    c_restart = false;
+}
+
+if(!instance_exists(o_standard_client)){
+    with(o_player1){ instance_destroy(); }
+    with(o_player2){ instance_destroy(); }
+    with(o_player3){ instance_destroy(); }
+    with(o_player4){ instance_destroy(); }
+    room_goto(r_menu);
+}
+
 //Send packet to server
 
 var buffer = buffer_create(256, buffer_grow, 1);
@@ -110,6 +125,7 @@ buffer_write(buffer, buffer_u16, c_up);
 buffer_write(buffer, buffer_u16, c_left);
 buffer_write(buffer, buffer_u16, c_right);
 buffer_write(buffer, buffer_u16, c_down);
+buffer_write(buffer, buffer_u16, c_restart);
 
 //Send movement
 network_send_packet(o_standard_client.client_socket, buffer, buffer_tell(buffer));
@@ -400,6 +416,20 @@ if(y &gt; room_height){
 
 if(instance_exists(o_server)){
     send_clients_room_transition(r_menu);
+    
+    //destroy everything!
+    with(o_server){
+        instance_destroy();
+    }
+    
+    with(o_host_client){ instance_destroy(); }
+
+    with(o_player1){ instance_destroy(); }
+    with(o_player2){ instance_destroy(); }
+    with(o_player3){ instance_destroy(); }
+    with(o_player4){ instance_destroy(); }
+    
+    room_goto(r_menu);
 }
 </string>
           </argument>
@@ -465,9 +495,29 @@ sprite_index = s_hurt;
             <kind>1</kind>
             <string>///Collide with solid
 
-move_contact_solid(direction, -1);
-vspeed = 0;
+if(other.sprite_index != s_moving_platform){
+    move_contact_solid(direction, -1);
+    vspeed = 0;
+}else{
+    
+    vspeed = 0;
+    
+    
+    
+        
+    
+    if(place_free(x, y+1)){
+        //determine if they are on top of the platform or not
+        if(y &lt;= other.y){
+            y++;
+        }else{
+            move_contact_solid(direction, -1);
+        }
+    }else{
+        y += other.p_speed;
+    }
 
+}
 </string>
           </argument>
         </arguments>

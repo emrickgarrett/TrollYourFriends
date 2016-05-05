@@ -66,7 +66,7 @@
     <instance objName="o_grass_mid" x="0" y="-70" name="inst_2C0C9147" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_mid" x="-70" y="-70" name="inst_2F434D72" locked="0" code="" scaleX="1" scaleY="13" colour="4294967295" rotation="0"/>
     <instance objName="o_spikes" x="420" y="700" name="inst_E0FF54F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="o_player1" x="70" y="630" name="inst_B9068453" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_player1" x="140" y="420" name="inst_B9068453" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_player2" x="70" y="630" name="inst_56726906" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_player3" x="70" y="630" name="inst_5590469E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_player4" x="70" y="630" name="inst_65B1431C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -74,9 +74,9 @@
     <instance objName="o_cursor2" x="-210" y="420" name="inst_F5ACCF64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_cursor3" x="-210" y="490" name="inst_EA8BF7EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_cursor4" x="-210" y="560" name="inst_1F85CF1C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="o_grass_right" x="630" y="490" name="inst_2DEEC87C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="o_grass_mid" x="560" y="490" name="inst_CD677ED9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="o_grass_left" x="490" y="490" name="inst_175B9504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_grass_right" x="630" y="480" name="inst_2DEEC87C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_grass_mid" x="560" y="480" name="inst_CD677ED9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_grass_left" x="490" y="480" name="inst_175B9504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_right" x="280" y="490" name="inst_63A569A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_mid" x="210" y="490" name="inst_9D1A86E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_grass_mid" x="140" y="490" name="inst_9572A146" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -92,6 +92,15 @@
     <instance objName="o_snake_vertical" x="280" y="770" name="inst_81E18123" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_snake_horizontal" x="840" y="420" name="inst_5BA463D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="o_spring" x="730" y="630" name="inst_D933BC33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_moving_platform" x="0" y="420" name="inst_A40C8C2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_platform_hook" x="0" y="350" name="inst_D7492969" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="340" name="inst_D44EF061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="280" name="inst_3634EC0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="210" name="inst_C75C93D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="140" name="inst_B046720A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="70" name="inst_D6E3417C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="0" name="inst_E10434F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_chain" x="0" y="-70" name="inst_7F5BD7AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -63,6 +63,7 @@ switch(msgid){
         var left = buffer_read(buffer, buffer_u16);
         var right = buffer_read(buffer, buffer_u16);
         var down = buffer_read(buffer, buffer_u16);
+        var restart = buffer_read(buffer, buffer_u16);
         
         var char = -1;
         if(room == r_test){
@@ -84,22 +85,70 @@ switch(msgid){
             switch(char){
                 case YELLOW:
                     char = o_player1;
+                    
+                    o_player1.up = up;
+                    o_player1.down = down;
+                    o_player1.left = left;
+                    o_player1.right = right;
+                    
+                    if(restart){
+                        o_player1.x = o_player1.start_x;
+                        o_player1.y = o_player1.start_y;
+                    }
                 break;
                 case BLUE:
                     char = o_player2;
+                    
+                    o_player2.up = up;
+                    o_player2.down = down;
+                    o_player2.left = left;
+                    o_player2.right = right;
+                    
+                    if(restart){
+                        o_player2.x = o_player2.start_x;
+                        o_player2.y = o_player2.start_y;
+                    }
                 break;
                 case PINK:
                     char = o_player3;
+                    
+                    o_player3.up = up;
+                    o_player3.down = down;
+                    o_player3.left = left;
+                    o_player3.right = right;
+                    
+                    if(restart){
+                        o_player3.x = o_player3.start_x;
+                        o_player3.y = o_player3.start_y;
+                    }
                 break;
                 case GREEN:
                     char = o_player4;
+                    
+                    o_player4.up = up;
+                    o_player4.down = down;
+                    o_player4.left = left;
+                    o_player4.right = right;
+                    
+                    if(restart){
+                        o_player4.x = o_player4.start_x;
+                        o_player4.y = o_player4.start_y;
+                    }
                 break;
             }
             
+            
+            /*
             char.up = up;
             char.down = down;
             char.left = left;
             char.right = right;
+            
+            if(restart){
+                char.x = char.start_x;
+                char.y = char.start_y;
+            }
+            */
         }
     break;
 }

@@ -60,6 +60,9 @@
         <sprite>sprites\s_snake</sprite>
       </sprites>
       <sprite>sprites\s_spring</sprite>
+      <sprite>sprites\s_moving_platform</sprite>
+      <sprite>sprites\s_platform_hook</sprite>
+      <sprite>sprites\s_chain</sprite>
     </sprites>
     <sprites name=" menu">
       <sprites name="main">
@@ -123,6 +126,7 @@
     <script>scripts\send_char_update.gml</script>
     <script>scripts\send_clients_selected.gml</script>
     <script>scripts\send_clients_room_transition.gml</script>
+    <script>scripts\send_clients_locations.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="objectives">
@@ -194,6 +198,9 @@
       <objects name="other">
         <object>objects\o_spring</object>
       </objects>
+      <object>objects\o_moving_platform</object>
+      <object>objects\o_platform_hook</object>
+      <object>objects\o_chain</object>
     </objects>
     <objects name="server_items">
       <object>objects\o_server</object>

@@ -220,9 +220,41 @@ if n_id == client_socket{
                 break;
                 case ROOM_MENU:
                     room_goto(r_menu);
+                    instance_destroy();
                 break;
             }
         break;
+        case PLAYER_MOVE:
+            
+            if(!instance_exists(o_server)){
+                //loop through 4 times for each players position
+                o_player1.up = buffer_read(buffer, buffer_u16);
+                o_player1.down = buffer_read(buffer, buffer_u16);
+                o_player1.left = buffer_read(buffer, buffer_u16);
+                o_player1.right = buffer_read(buffer, buffer_u16);
+                o_player1.restart = buffer_read(buffer, buffer_u16);
+                
+                o_player2.up = buffer_read(buffer, buffer_u16);
+                o_player2.down = buffer_read(buffer, buffer_u16);
+                o_player2.left = buffer_read(buffer, buffer_u16);
+                o_player2.right = buffer_read(buffer, buffer_u16);
+                o_player2.restart = buffer_read(buffer, buffer_u16);
+                
+                o_player3.up = buffer_read(buffer, buffer_u16);
+                o_player3.down = buffer_read(buffer, buffer_u16);
+                o_player3.left = buffer_read(buffer, buffer_u16);
+                o_player3.right = buffer_read(buffer, buffer_u16);
+                o_player3.restart = buffer_read(buffer, buffer_u16);
+                
+                o_player4.up = buffer_read(buffer, buffer_u16);
+                o_player4.down = buffer_read(buffer, buffer_u16);
+                o_player4.left = buffer_read(buffer, buffer_u16);
+                o_player4.right = buffer_read(buffer, buffer_u16);
+                o_player4.restart = buffer_read(buffer, buffer_u16);
+            }
+            
+        break;
+        
     }
 }
 </string>
